@@ -7,8 +7,8 @@
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center pt-4">
             <li class="nav-item">
                 <a href="{% url 'register:profile' %}" class="nav-link border-bottom" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="My profile">
-                    {% if avatar != '' %}
-                        <img src="/media/{{avatar}}" width="30px" height="30px" alt="">
+                    {% if request.user.profile.avatar%}
+                        <img src="/media/{{avatar}}" width="30px" height="30px" style="border-radius: 50%; border: 1px solid grey" alt="">
                     {% else %}
                         <i class="bi bi-person-circle fs-3 texty-lessblue"></i>
                     {% endif %}

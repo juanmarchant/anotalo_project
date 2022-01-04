@@ -27,9 +27,6 @@ class HomePageView(TemplateView):
             'avatar': user.profile.avatar,
             'background': user.profile.background,
         }
-        # context['all_task'] = user.tasks.all()[::-1]
-        # context['avatar'] = user.profile.avatar
-        # context['background'] = user.profile.background
         return context
 
 

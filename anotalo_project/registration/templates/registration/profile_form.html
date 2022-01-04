@@ -4,15 +4,28 @@
 {% block content %}
 <div class="anotalo">
     <div class="container d-flex min-vh-100 justify-content-center align-items-center ">
-        <div class="row">
-            <div class="col col-lg-10 col-md-7 col-10 fw-600 shadow-me p-3 border-5r-solid bg-lightgray mb-4 mx-auto">
+        <div class="row p-3">
+            <div class="col fw-600 shadow-me p-3 border-5r-solid bg-lightgray mb-4 mx-auto">
                 <form method="post" enctype="multipart/form-data">{% csrf_token %}
-                    {{form.as_p}}
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-blue fw-600">Update profile</button>
+                    <div class="row ">
+                        <div class="col-md-4 col-sm-1">
+                            {% if request.user.profile.avatar %}
+                                <img src="{{request.user.profile.avatar.url}}" class="img-fluid">
+                                <p class="mt-1 ">¿Borrar? <input type="checkbox" id="avatar-clear" name="avatar-clear" /></p>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            <h1>Hello world</h1>
+                            <input type="file" name="avatar" class="form-control" id="id_avatar">
+                        </div>
                     </div>
+                    
+                    
+                    {% comment %} <div class="d-grid">
+                        <button type="submit" class="btn btn-blue fw-600">Update profile</button>
+                    </div> {% endcomment %}
                 </form>
-                <p>Back to <a href="{% url 'dashboard:home'%} ">dashboard </a></p>
+                {% comment %} <p>Back to <a href="{% url 'dashboard:home'%} ">dashboard </a></p> {% endcomment %}
             </div>
         </div>
     </div>
