@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+{% load static %}
+
+{% include 'core/navbar.html' %}
+
+
+<section id="home" class="anotalo d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center ">
+                <h1 class="mb-3 text-center text-lg-start fw-700 texty-blue">Organize your next tasks faster</h1>
+                <h2 class="mb-4 fs-4 text-center text-lg-start">We are team of talented designers making websites with Bootstrap</h2>
+                <div class="text-center text-lg-start">
+                    <a href="#about" class="btn btn-lg btn-blue d-inline-flex align-items-center justify-content-center align-self-center shadow-me">
+                        <span>More about</span><i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 anotalo-img d-flex flex-column justify-content-center">
+                <img class="img-fluid mx-auto" src="{% static 'core/img/anotalo-img.png' %}" width="500px" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<main>
+    {% include 'core/about.html' %}
+</main>
+
+{% include 'core/footer.html' %}
+{% endblock content %}

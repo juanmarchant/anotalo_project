@@ -1,0 +1,39 @@
+{% load static %}
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white fw-600">
+        <div class="container-fluid container-xl ">
+          <a class="navbar-brand fs-3 texty-blue" href="#">
+            <img src="{% static 'core/img/logo.svg' %}" class="d-inline-block align-text-top" width="35px" heigth="35px" alt="">
+            Anotalo
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse flex-row-reverse texty-blue" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ">
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link " disable href="#">Contact</a>
+              </li>
+              {% if request.user.is_authenticated %}
+                <li class="nav-item mx-2 ">
+                  <a class="btn btn-blue fw-600" href="{% url 'dashboard:home' %}">Dashboard</a>
+                </li>
+              {% else %}
+                <li class="nav-item mx-2 ">
+                  <a class="btn btn-blue fw-600" href="{% url 'register:signup'%}">Get started</a>
+                  <a class="btn border-blue ms-2 fw-600" href="{% url 'login' %}">Log in</a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+    </nav>
+</header>
+

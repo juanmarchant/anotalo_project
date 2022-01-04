@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+
+section{
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+label{
+  font-weight: 600;
+  color: #012970 !important;
+}
+
+input, select, textarea, .navbar-toggler, .btn-close{
+  box-shadow: none !important;
+}
+
+.anotalo {
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  background: url(../img/anotalo-background.png) top center no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.anotalo-img {
+  text-align: center;
+  margin-top: 80px;
+}
+
+
+.btn-blue{
+  background-color: #4154F1 ;
+  color: white;
+}
+
+.btn-blue:hover{
+  background-color: #2a3ef1 ;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.border-blue{
+  border: 1px solid #4154F1;
+  color: #012970;
+  
+}
+
+.border-blue:hover{
+  background-color: #6f7cf5;
+  border: 1px solid #6f7cf5;
+  color:white;
+  transition: 0.3s ease-in-out;
+}
+
+.border-5r-solid{
+  border: 1px solid #BBBBBB;
+  border-radius: 5px;
+}
+
+.bg-lightgray{
+  background-color: #F2F5FC;
+}
+
+.content{
+  align-items: center;
+  padding: 0.8rem 1rem ;
+  min-height: 10rem;
+  max-height: 10rem;
+  width: 100%;
+}
+
+.content-task{
+  margin-left: 70px;
+}
+.alert-error{
+  color: #660303;
+  background-color: #ffcdcd;
+  border-color: #ffb5b5;
+}
+
+.errorlist{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.errorlist li {
+  border: 1px solid #FF2F2F;
+  border-radius: 5px;
+  background-color: #FBE1E1;
+  color: red;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* SemiBold */
+.fw-600{
+  font-weight: 600 !important;
+}
+/* Bold */
+.fw-700{
+  font-weight: 700 !important;
+}
+
+.helptext{
+  font-weight: 400;
+  font-size: 12px;
+  color: #858585;
+}
+
+.option{
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.task{
+  margin: 20px;
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.2);
+}
+
+.texty-lightblue{
+  color: #4154F1 !important ;
+}
+
+.texty-lessblue{
+  color: #004CD2 !important; 
+}
+
+.texty-blue{
+  color: #012970 !important;
+}
+
+.navbar-light.scrolled{
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+}
+
+.shadow-me{
+  box-shadow: 0px 0px 30px rgba(65, 84, 241, 0.4);
+}
+
+.shadow-black{
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-light,
+.navbar-nav,
+.nav-link {
+  color: #012970 !important;
+}
+
+
+
+
+/* Mobile Setup */
+@media only screen and (min-width: 360px) {
+  .content{
+    
+    min-height: 10.5rem;
+    max-height: 10.5rem;
+  }
+  .content-task{
+    width: 80%;
+  }
+  .task {
+    min-width: 85%;   
+    max-width: 85%;   
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .task {
+    min-width: 86%;   
+    max-width: 86%;   
+  }
+}
+
+@media only screen and (min-width: 414px) {
+  .content{
+    min-height: 9rem;
+    max-height: 9rem;
+  }
+  .content-task{
+    margin-left: 75px;
+  }
+  .task {
+    min-width: 88%;   
+    max-width: 88%;   
+  }
+}
+
+/* Tablet Setup */
+
+@media only screen and (min-width: 601px) {
+  .content{
+    min-height: 6rem;
+    max-height: 6rem;
+  }
+  .content-task{
+    margin-left: 90px;
+  }
+  .task {
+    min-width: 91%;   
+    max-width: 91%;   
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .content{
+    min-height: 9rem;
+    max-height: 9rem;
+  }
+  .content-task{
+    margin-left: 95px;
+    width: 85%;
+  }
+  .task {
+    min-width: 43%;   
+    max-width: 43%;   
+  }
+}
+
+@media only screen and (min-width: 820px) {
+  .content{
+    min-height: 8.5rem;
+    max-height: 8.5rem;
+  }
+  .content-task{
+    margin-left: 90px;
+    width: 87%;
+  }
+  .task {
+    min-width: 44%;   
+    max-width: 44%;   
+  }
+}
+
+@media only screen and (min-width: 962px) {
+  .content{
+    min-height: 7.5rem;
+    max-height: 7.5rem;
+  }
+  .content-task{
+    margin-left: 80px;
+    width: 90%;
+  }
+  .task {
+    min-width: 45%;   
+    max-width: 45%;   
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .content-task{
+    margin-left: 75px;
+    width: 94%;
+  }
+  .task {
+    min-width: 29.5%;   
+    max-width: 29.5%;   
+  }
+}
+
+/* Desktop Setup */
+
+@media only screen and (min-width: 1366px) {
+  .content{
+    min-height: 9rem;
+    max-height: 9rem;
+  }
+  .task {
+    min-width: 21.5%;   
+    max-width: 21.5%;   
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .task {
+    min-width: 21.5%;   
+    max-width: 21.5%;   
+  }
+}
+
+@media only screen and (min-width: 1536px) {
+  .task {
+    min-width: 22%;   
+    max-width: 22%;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .content-task{
+    width: 96%;
+  }
+  .task {
+    min-width: 17.5%;   
+    max-width: 17.5%;
+  }
+}
+
+@media only screen and (min-width: 2048px) {
+  .content-task{
+    width: 96%;
+  }
+  .task {
+    min-width: 14.4%;   
+    max-width: 14.4%;
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  .content-task{
+    width: 97%;
+  }
+  .task {
+    min-width: 14.8%;   
+    max-width: 14.8%;
+  }
+}
+
+@media only screen and (min-width: 3840px) {
+  .content-task{
+    width: 98%;
+  }
+  .task {
+    min-width: 9.9%;   
+    max-width: 9.9%;
+  }
+}

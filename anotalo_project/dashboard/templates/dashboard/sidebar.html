@@ -1,0 +1,29 @@
+{% load static %}
+<div class="d-inline-block position-fixed">
+    <div class="d-flex min-vh-100 flex-column flex-shrink-0 bg-light" style="width: 4rem; box-shadow: 0 10px 16px 0 rgba(0,0,0,0.1) , 0 6px 20px 0 rgba(0,0,0,0.4);">
+        <a href="/" class="d-block text-center pt-3 link-dark text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+            <img src=" {% static 'core/img/logo.svg' %}" alt="">
+        </a>
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center pt-4">
+            <li class="nav-item">
+                <a href="{% url 'register:profile' %}" class="nav-link border-bottom" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="My profile">
+                    {% if avatar != '' %}
+                        <img src="/media/{{avatar}}" width="30px" height="30px" alt="">
+                    {% else %}
+                        <i class="bi bi-person-circle fs-3 texty-lessblue"></i>
+                    {% endif %}
+                </a>
+            </li>
+            <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Add a task"  >
+                <a href="#" class="pe-auto nav-link border-bottom" data-bs-toggle="modal" data-bs-target="#create_note" >
+                    <i class="bi bi-plus-circle fs-3 texty-lessblue"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="border-top" data-bs-toggle="tooltip" data-bs-placement="right" title="Log out" >
+            <a href="#" class="pe-auto nav-link text-center" data-bs-toggle="modal" data-bs-target="#logout">
+                <i class="bi bi-power fs-2 text-danger"></i>
+            </a>
+        </div>
+    </div>
+</div>

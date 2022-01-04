@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+{% block title %}Log in {% endblock title %}
+{% block content %}
+{% load static %}
+
+<div class="anotalo">
+    <div class="container d-flex min-vh-100 justify-content-center align-items-center ">
+        <div class="row ">
+            <div class="text-center mb-5">
+                <a href="{% url 'main:home' %}" class="fw-600 fs-3 texty-blue text-decoration-none ">
+                    <img src="{% static 'core/img/logo.png'%} " class="d-inline-block align-text-top" width="35px" heigth="35px" alt="">
+                    Anotalo
+                </a>
+            </div>
+            <div class="col col-lg-8 col-md-7 col-10 fw-600 shadow-me p-3 border-5r-solid bg-lightgray mb-4 mx-auto">
+
+                {% if 'register' in request.GET%}
+                    <p style="border: 1px solid #1ABA00; border-radius: 5px; background-color: #E1FBE3; color: #1ABA00;padding: 8px; margin-bottom: 10px; font-weight: 600;">
+                        User registered correctly, you can now identify yourself
+                    </p>
+                {%endif%}
+                {% if form.non_field_errors%}
+                    <p style="border: 1px solid #FF2F2F; border-radius: 5px; background-color: #FBE1E1; color: red;padding: 8px; margin-bottom: 10px; font-weight: 600;">
+                        Incorrect username or password. 
+                    </p>
+                {%endif%}
+                <form action="" method="post">{% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">Username:</label>
+                        <input type="text" class="form-control" name="username" required id="id_username">
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="row justify-content-around">
+                            <div class="col ">
+                            <label class="form-label">Password:</label>
+                            </div>
+                            <div class="col text-end">
+                              <a href="{% url 'password_reset' %}" class="text-decoration-none"><small class="texty-lessblue">Forgot password?</small></a>
+                            </div>
+                        </div>
+                        <input type="password" class="form-control" name="password" required id="id_password">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-blue fw-600">Log in</button>
+                    </div>
+                  </form>
+            </div>
+            <div class="text-center texty-blue fw-600">
+                <span>New to Anotalo? <a href="{% url 'register:signup'%} " class="text-decoration-none texty-lessblue"> Create a account.</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %} 

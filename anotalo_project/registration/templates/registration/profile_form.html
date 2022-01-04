@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+{% block title %}Profile{% endblock title %}
+{% load static %}
+{% block content %}
+<div class="anotalo">
+    <div class="container d-flex min-vh-100 justify-content-center align-items-center ">
+        <div class="row">
+            <div class="col col-lg-10 col-md-7 col-10 fw-600 shadow-me p-3 border-5r-solid bg-lightgray mb-4 mx-auto">
+                <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                    {{form.as_p}}
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-blue fw-600">Update profile</button>
+                    </div>
+                </form>
+                <p>Back to <a href="{% url 'dashboard:home'%} ">dashboard </a></p>
+            </div>
+        </div>
+    </div>
+</div>    
+{% endblock content %}

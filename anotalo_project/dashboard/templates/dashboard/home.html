@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% load static %}
+{% block content %}
+
+{% if background != '' %}
+    <img style="background-image: url('/media/{{background}}'); background-position: center; background-repeat: no-repeat; background-size: cover; position: fixed; width: 101%; height: 101%; border: 10px solid black;">
+{% else %}
+    <img style="background-image: url('/static/core/img/anotalo-background.png');background-position: center center; background-repeat: no-repeat; background-size: cover; position: fixed; width: 101%; height: 101vh;">
+{% endif %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div style="position:fixed; z-index: 1; padding-top:10px; display: block;">
+            <div {%if message.tags %} class=" shadow-black alert alert-{{message.tags}} alert-dismissible fade show" {%endif%} style="margin-left: 5px;" role="alert">
+                    {% if message.tags == 'success' %}
+                        <i class="bi bi-check-circle-fill"></i>
+                    {% elif message.tags == 'error' %}
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    {% endif %}
+                    {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% include 'dashboard/sidebar.html' %}
+<div class="d-inline-block align-top position-absolute content-task">
+    {% for task in all_task %}
+        <div class="task d-inline-block align-top ">
+            <div class="glue text-end" style="background: {{task.colors.glue_color}};  height: 30px;">
+                <!-- Edit task -->
+                <div class="d-inline-block text-center option"  style="background-color: #19AA2A;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit task" >
+                    <a onclick="edit_task({{task.id}});" data-bs-toggle="modal" data-bs-target="#edit_note"><i class="bi bi-pen-fill" style="color: #014200;"></i></a>
+                </div> 
+                <!-- Delete task  -->
+                <div class="d-inline-block text-center align-top option" style="background-color: #DF433D;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete task">
+                    <a onclick="delete_task({{task.id}});" data-bs-toggle="modal" data-bs-target="#delete_note"><i class="bi bi-trash2-fill" style="color: #4D0000"></i></a>
+                </div>
+            </div>
+            
+            <div class="content d-table " style="background: {{task.colors.content_color}};">
+                <p class="text-center text-break d-table-cell align-middle ">
+                    {{task.content}}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% block script %}
+<script src="{% static 'core/js/tooltip.js' %}"></script>
+<script src="{% static 'core/js/task.js' %}"></script>
+{% endblock script %}
+
+{% include 'dashboard/modals.html' %}
+{% endblock content %}

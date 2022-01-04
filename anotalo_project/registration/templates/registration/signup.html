@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block title %}Sign up {% endblock title %}
+{% block content %}
+{% load static %}
+
+<div class="anotalo">
+    <div class="container d-flex min-vh-100 justify-content-center align-items-center ">
+        <div class="row p-3">
+            <div class="text-center mb-5">
+                <a href="{% url 'main:home' %}" class="fw-600 fs-3 texty-blue text-decoration-none ">
+                    <img src="{% static 'core/img/logo.png'%} " class="d-inline-block align-text-top" width="35px" heigth="35px" alt="">
+                    Anotalo
+                </a>
+            </div>
+            <div class="col col-lg-8 col-md-7 col-10 fw-600 shadow-me p-3 border-5r-solid bg-lightgray mx-auto g-3 mb-4">
+                <form action="" method="post">{% csrf_token %}
+                    {{form.as_p}}
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-blue fw-600">Sign up</button>
+                    </div>
+                  </form>
+            </div>
+            <div class="text-center texty-blue fw-600">
+                <span>Already have an account? <a href="{% url 'login' %}" class="text-decoration-none texty-lessblue"> Sign in</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %} 
