@@ -6,24 +6,38 @@
     <div class="container d-flex min-vh-100 justify-content-center align-items-center ">
         <div class="row p-3">
             <div class="col fw-600 shadow-me p-3 border-5r-solid bg-lightgray mb-4 mx-auto">
+                <a class="btn btn-blue fw-700 text-center" href="{% url 'dashboard:home'%}">Back to dashboard</a>  
                 <form method="post" enctype="multipart/form-data">{% csrf_token %}
-                    <div class="row ">
-                        <div class="col-md-4 col-sm-1">
-                            {% if request.user.profile.avatar %}
-                                <img src="{{request.user.profile.avatar.url}}" class="img-fluid">
-                                <p class="mt-1 ">¿Borrar? <input type="checkbox" id="avatar-clear" name="avatar-clear" /></p>
-                            {% endif %}
+                    <div class="row mt-3">
+                        {% if request.user.profile.avatar %}
+                            <div class="col-10 col-md-4 mt-3 text-center mx-auto">
+                                <h3 class="texty-blue fw-600" >{{request.user.username}}</h3>
+                                <img src="{{request.user.profile.avatar.url}}" style="border-radius: 50%;" class="img-fluid">
+                                
+                            </div>
+                        {% endif %}
+                        <div class="col px-5">
+                            <div class="mb-3 mt-3 ">
+                                <label for="form-label texty-blue fw-700">Avatar:</label>
+                                <input type="file" name="avatar" class="form-control" id="id_avatar">
+                                <div class="form-text">Try to use a <b>circular</b> photo.</div>
+                            </div>
+
+                            <div class="mb-3 mt-3 ">
+                                <label for="form-label texty-blue fw-700">Background:</label>
+                                <input type="file" name="background" class="form-control" id="id_background">
+                                <div class="form-text">Resolution recommended <b>3840 x 2160</b>.</div>
+                            </div>    
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-blue fw-600">Update profile</button>
+                            </div>
                         </div>
-                        <div class="col">
-                            <h1>Hello world</h1>
-                            <input type="file" name="avatar" class="form-control" id="id_avatar">
-                        </div>
+                        
                     </div>
                     
                     
-                    {% comment %} <div class="d-grid">
-                        <button type="submit" class="btn btn-blue fw-600">Update profile</button>
-                    </div> {% endcomment %}
+                    
                 </form>
                 {% comment %} <p>Back to <a href="{% url 'dashboard:home'%} ">dashboard </a></p> {% endcomment %}
             </div>
