@@ -13,7 +13,6 @@
                             <div class="col-10 col-md-4 mt-3 text-center mx-auto">
                                 <h3 class="texty-blue fw-600" >{{request.user.username}}</h3>
                                 <img src="{{request.user.profile.avatar.url}}" style="border-radius: 50%;" class="img-fluid">
-                                
                             </div>
                         {% endif %}
                         <div class="col px-5">
@@ -26,20 +25,23 @@
                             <div class="mb-3 mt-3 ">
                                 <label for="form-label texty-blue fw-700">Background:</label>
                                 <input type="file" name="background" class="form-control" id="id_background">
-                                <div class="form-text">Resolution recommended <b>3840 x 2160</b>.</div>
+                                <div class="form-text mb-3">Resolution recommended <b>3840 x 2160</b>.</div>
+                                {% if request.user.profile.background %}
+                                <label for="form-label texty-blue fw-700">Prieview Background:</label>
+                                <div class="text-center mt-2 mb-3">
+                                    <a href="{{request.user.profile.background.url}}" target="blank">
+                                        <img class="border border-primary border-2 rounded" src="{{request.user.profile.background.url}}" width="50%" alt="Preview Background">
+                                    </a>
+                                </div>
+                                {% endif %}
                             </div>    
 
                             <div class="d-grid mt-4">
                                 <button type="submit" class="btn btn-blue fw-600">Update profile</button>
                             </div>
                         </div>
-                        
                     </div>
-                    
-                    
-                    
                 </form>
-                {% comment %} <p>Back to <a href="{% url 'dashboard:home'%} ">dashboard </a></p> {% endcomment %}
             </div>
         </div>
     </div>

@@ -5,7 +5,6 @@
 
 {% include 'core/navbar.html' %}
 
-
 <section id="home" class="anotalo d-flex align-items-center">
     <div class="container">
         <div class="row">
@@ -18,7 +17,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="col-lg-6 anotalo-img d-flex flex-column justify-content-center">
                 <img class="img-fluid mx-auto" src="{% static 'core/img/anotalo-img.png' %}" width="500px" alt="">
             </div>
@@ -26,9 +24,6 @@
     </div>
 </section>
 
-<main>
-    {% include 'core/about.html' %}
-</main>
-
+{% include 'core/about.html' %}
 {% include 'core/footer.html' %}
 {% endblock content %}

@@ -4,7 +4,7 @@
 {% block content %}
 
 {% if request.user.profile.background %}
-    <img style="background-image: url('/media/{{background}}'); background-position: center; background-repeat: no-repeat; background-size: cover; position: fixed; width: 100%; height: 105%; top:-2px;">
+    <img style="background-image: url('/media/{{background}}'); background-position: center; background-repeat: no-repeat; background-size: cover; position: fixed; width: 101%; height: 105%; top:-2px;">
 {% else %}
     <img style="background-image: url('/static/core/img/anotalo-background.png');background-position: center center; background-repeat: no-repeat; background-size: cover; position: fixed; width: 100%; height: 105%; top:-2px;">
 {% endif %}
