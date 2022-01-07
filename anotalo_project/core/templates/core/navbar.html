@@ -2,7 +2,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white fw-600">
         <div class="container-fluid container-xl ">
-          <a class="navbar-brand fs-3 texty-blue" href="#">
+          <a class="navbar-brand fs-3 texty-blue" href="#home">
             <img src="{% static 'core/img/logo.svg' %}" class="d-inline-block align-text-top" width="35px" heigth="35px" alt="">
             Anotalo
           </a>
@@ -13,13 +13,13 @@
           <div class="collapse navbar-collapse flex-row-reverse texty-blue" id="navbarTogglerDemo02">
             <ul class="navbar-nav ">
               <li class="nav-item mx-2">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="#home">Home</a>
               </li>
               <li class="nav-item mx-2">
                 <a class="nav-link" href="#about">About</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link " disable href="#">Contact</a>
+                <a class="nav-link" disable href="#contact">Contact</a>
               </li>
               {% if request.user.is_authenticated %}
                 <li class="nav-item mx-2 ">
