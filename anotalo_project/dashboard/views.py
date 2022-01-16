@@ -13,23 +13,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import *
 
-
-# Create your views here.
-@method_decorator(login_required, name='dispatch')
-class HomePageView(TemplateView):
-    template_name= "dashboard/home.html"
-
-    def get_context_data(self, **kwargs,):
-        context = super(TemplateView, self).get_context_data(**kwargs)
-        user = self.request.user
-        context ={
-            'all_task': user.tasks.all()[::-1],
-            'avatar': user.profile.avatar,
-            'background': user.profile.background,
-        }
-        return context
-
-
 def select_option(content):
     color = ['default','#FFF7A1', '#F9E26E']
     if content == 'red':
@@ -58,6 +41,27 @@ def select_option(content):
         color[2] = '#FE5EBE'
     return color
 
+# Create your views here.
+@method_decorator(login_required, name='dispatch')
+class HomePageView(TemplateView):
+    template_name= "dashboard/home.html"
+
+    def get_context_data(self, **kwargs,):
+        context = super(TemplateView, self).get_context_data(**kwargs)
+        user = self.request.user
+        try:
+            context ={
+            'all_task': user.tasks.all()[::-1],
+            'avatar': user.profile.avatar,
+            'background': user.profile.background,
+            }
+            return context
+        except AttributeError:
+            context ={
+            'all_task': user.tasks.all()[::-1],
+            }
+            return context
+
 def add_task(request):
     if request.method == 'POST':
         user = User.objects.get(id=request.user.id)
@@ -74,6 +78,9 @@ def add_task(request):
             final_task.save()
             messages.success(request, "You have successfully added a task")
             return redirect("/dashboard/")       
+    else:
+        messages.error(request, "Try to create the task in the respective form")
+        return redirect("/dashboard/")      
 
 def edit_task(request, task_id):
     if request.method == 'POST':
@@ -104,6 +111,9 @@ def edit_task(request, task_id):
             edit_task.colors.save()            
             messages.success(request, 'The task was edited successfully')
             return redirect("/dashboard/")
+    else:
+        messages.error(request, "Try to edit the task in the respective form")
+        return redirect("/dashboard/")      
 
 def delete_task(request, task_id):
     if request.method == "POST":
@@ -111,3 +121,6 @@ def delete_task(request, task_id):
         delete_task = user.tasks.get(id=task_id)
         delete_task.delete()
         return redirect("/dashboard/")       
+    else:
+        messages.error(request, "Try to delete the task in the respective form")
+        return redirect("/dashboard/")      
