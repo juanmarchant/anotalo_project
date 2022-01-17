@@ -1,65 +1,67 @@
 {% extends 'core/base.html' %}
 {% block title %}Profile{% endblock title %}
-{% load static %}
+{% block class_body  %}anotalo{% endblock class_body  %}
 {% load static %}
 {% block content %}
-<div class="anotalo min-vh-100">
-    <div class="container d-flex min-vh-100 justify-content-center align-items-center ">
-        <div class="row p-3">
-            <div class="col fw-600 shadow-me p-3 border-5r-solid bg-lightgray mb-4 mx-auto">
-                <a class="btn btn-blue fw-700 text-center" href="{% url 'dashboard:home'%}">Back to dashboard</a>  
-                <form method="post" enctype="multipart/form-data">{% csrf_token %}
-                    <div class="row row-cols-2 row-cols-lg-10 mt-3">
-                        {% if request.user.profile.avatar %}
-                            <div class="col col-8 col-md-5 col-lg-5 col-xl-4 mt-3 text-center mx-auto d-flex justify-content-center align-items-center">
-                                <div class="d-grid">
-                                    <h3 class="texty-blue fw-600" >{{request.user.username}}</h3>
-                                    <img src="{{request.user.profile.avatar.url}}" style="border-radius: 50%;" class="img-fluid">
-                                </div>
+{% comment %} <div class="anotalo"> {% endcomment %}
+<div class="container d-flex min-vh-100 justify-content-center align-items-center ">
+    <div class="row p-3">
+        <div class="col fw-600 shadow-me p-3 border-5r-solid bg-lightgray mb-4 mx-auto">
+            <a class="btn btn-blue fw-700 text-center" href="{% url 'dashboard:home'%}">Back to dashboard</a>  
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="row row-cols-2 row-cols-lg-10 mt-3">
+                    {% if request.user.profile.avatar %}
+                        <div class="col col-8 col-md-5 col-lg-5 col-xl-4 mt-3 text-center mx-auto d-flex justify-content-center align-items-center">
+                            <div class="d-grid">
+                                <h3 class="texty-blue fw-600" >{{request.user.username}}</h3>
+                                <img src="{{request.user.profile.avatar.url}}" style="border-radius: 50%;" class="img-fluid">
                             </div>
-                        {% else %}
-                            <div class="col-10 col-md-4 col-xl-4 mt-3 text-center mx-auto">
+                        </div>
+                    {% else %}
+                        <div class="col col-8 col-md-5 col-lg-5 col-xl-4 mt-3 text-center mx-auto d-flex justify-content-center align-items-center">
+                            <div class="d-grid">
                                 <h3 class="texty-blue fw-600" >{{request.user.username}}</h3>
                                 <img src="{% static 'registration/img/no-avatar.png' %}" class="img-fluid">
                             </div>
-                        {% endif %}
-                        
-                        <div class="col col-10 col-md-10 col-lg-6 col-xl-7 d-block mx-auto px-5">
-                            <div class="mb-3 mt-3 ">
-                                <label for="form-label texty-blue fw-700">Avatar:</label>
-                                <input type="file" name="avatar" class="form-control" id="id_avatar">
-                                <div class="form-text">Try to use a <b>circular</b> photo.</div>
-                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="col col-12 col-md-10 col-lg-6 col-xl-7 d-block mx-auto px-5">
+                        <div class="mb-3 mt-3 ">
+                            <label for="form-label texty-blue fw-700">Avatar:</label>
+                            <input type="file" name="avatar" class="form-control" id="id_avatar">
+                            <div class="form-text">Try to use a <b>circular</b> photo.</div>
+                        </div>
 
-                            <div class="mb-3 mt-3 ">
-                                <label for="form-label texty-blue fw-700">Background:</label>
-                                <input type="file" name="background" class="form-control" id="id_background">
-                                <div class="form-text mb-3">Resolution recommended <b>3840 x 2160</b>.</div>
-                                {% if request.user.profile.background %}
-                                    <label for="form-label texty-blue fw-700">Preview Background:</label>
-                                    <div class="text-center mt-2 mb-3">
-                                        <a href="{{request.user.profile.background.url}}" target="blank">
-                                            <img class="border border-primary border-2 rounded" src="{{request.user.profile.background.url}}" width="50%" alt="Preview Background">
-                                        </a>
-                                    </div>
-                                {% else %}
-                                    <label for="form-label texty-blue fw-700">Preview Background:</label>
-                                    <div class="text-center mt-2 mb-3">
-                                        <a href="/static/core/img/anotalo-background.png" target="blank">
-                                            <img class="border border-primary border-2 rounded" src="{% static 'core/img/anotalo-background.png' %}" width="30%"  alt="Preview Background">
-                                        </a>
-                                    </div>
-                                {% endif %}
-                            </div>    
+                        <div class="mb-3 mt-3 ">
+                            <label for="form-label texty-blue fw-700">Background:</label>
+                            <input type="file" name="background" class="form-control" id="id_background">
+                            <div class="form-text mb-3">Resolution recommended <b>3840 x 2160</b>.</div>
+                            {% if request.user.profile.background %}
+                                <label for="form-label texty-blue fw-700">Preview Background:</label>
+                                <div class="text-center mt-2 mb-3">
+                                    <a href="{{request.user.profile.background.url}}" target="blank">
+                                        <img class="border border-primary border-2 rounded" src="{{request.user.profile.background.url}}" width="50%" alt="Preview Background">
+                                    </a>
+                                </div>
+                            {% else %}
+                                <label for="form-label texty-blue fw-700">Preview Background:</label>
+                                <div class="text-center mt-2 mb-3">
+                                    <a href="/static/core/img/anotalo-background.png" target="blank">
+                                        <img class="border border-primary border-2 rounded" src="{% static 'core/img/anotalo-background.png' %}" width="50%"  alt="Preview Background">
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>    
 
-                            <div class="d-grid mt-4">
-                                <button type="submit" class="btn btn-blue fw-600">Update profile</button>
-                            </div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-blue fw-600">Update profile</button>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
-</div>    
+</div>
+{% comment %} </div>     {% endcomment %}
 {% endblock content %}
