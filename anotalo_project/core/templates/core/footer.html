@@ -1,28 +1,33 @@
-<footer id="contact" class="mt-5" style="background-color: rgb(214, 226, 255)">
+{% load static %}
+<!-- Footer -->
+<footer id="contact" class="text-center text-lg-start texty-blue" style="background-color: rgb(214, 226, 255)">
+  <section >
+    <div class="container text-center text-md-start">
+      <div class="row gx-5">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto">
+          <h6 class="text-uppercase fw-bold mb-4">
+              <img src="{% static 'core/img/logo.svg' %}" class="d-inline-block align-text-top" width="20px" heigth="20px" alt="">
+              Anotalo
+          </h6>
+          <p>If you have any problem with the website or want to know about the <a href="https://github.com/juanmarchant/anotalo_project" target="_blank" class="text-decoration-none">source code </a>or anything about the website, do not hesitate to contact me, I will respond as quickly as possible.</p>
+        </div>
+        
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-md-0 mt-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p class="text-lg-start text-md-start text-center"><i class="bi bi-house-door-fill me-3"></i> Santiago, Chile</p>
 
-  <div class="container">
-    <div class="row justify-content-center p-3">
-      <div class="col-lg-3">
-        <h5 class="fw-700 texty-blue mb-3">Information</h5>
-        <p>If you have any problem with the website or want to know about the <a href="https://github.com/juanmarchant/anotalo_project" target="_blank" class="text-decoration-none">source code </a>or anything about the website, do not hesitate to contact me, I will respond as quickly as possible.</p>
-      </div>
-      <div class="col-lg-3  ">
-        <h5 class="fw-700 texty-blue mb-3">Contact</h5>
-        <ul class="list-unstyled">
-          <li class="texty-blue fw-600 mb-3">
-            <span><i class="bi bi-envelope-fill"></i></span><span class="ms-2 align-top">anotalo.supp@gmail.com</span>            
-          </li>
-          <li class="texty-blue fw-600  mb-3">
-            <span><i class="bi bi-geo-alt-fill"></i></span><span class="ms-2 align-top">Santiago, Chile</span>            
-          </li>
-        </ul>
+          <p><i class="bi bi-envelope-fill me-3"></i><a class="text-decoration-none" href="mailto:anotalo.supp@gmail.com" target="_blank" rel="noopener noreferrer">anotalo.supp@gmail.com</a></p>
+          
+          <p>
+            <i class="bi bi-github me-3"></i>
+            <a class="text-decoration-none" target="_blank" href="https://github.com/juanmarchant/">Github author</a>
+          </p>
+
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Copyright -->
-  <div class="text-center fw-600 texty-blue p-3" style="background-color: rgb(159, 188, 255)">
-    © 2021 Copyright :
-    <a class="texty-blue text-decoration-none" href="https://juanmarchant.pythonanywhere.com/">Juan Marchant</a>
-  </div>
-  <!-- Copyright -->
+  </section>
 </footer>
+<!-- Footer -->
