@@ -5,11 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Juan David Marchant Rojas">
-    {% comment %} Add keywords og and tw {% endcomment %}
-    <meta name="keywords" content="">
+    <meta name="keywords" content="anotalo, to do list, todo, task">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    {% load static %}
+    {% load static %}    
+    <!-- HTML Meta Tags -->
+    <meta name="description" content="Anotalo offers you a free website where you can add your daily, weekly or monthly tasks. You will only have to create an account and you will be able to create as many tasks as you need!">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://www.anotalo.website/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block title_og %}{% endblock title_og %} Anotalo">
+    <meta property="og:description" content="Anotalo offers you a free website where you can add your daily, weekly or monthly tasks. You will only have to create an account and you will be able to create as many tasks as you need!">
+    <meta property="og:image" content="https://www.anotalo.website/ {%static 'core/img/anotalo.jpg'%}">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="anotalo.website">
+    <meta property="twitter:url" content="https://www.anotalo.website/">
+    <meta name="twitter:title" content="{% block title_tw %}{% endblock title_og %} Anotalo">
+    <meta name="twitter:description" content="Renunciation of Indonesian citizenship process changed in 2020. This site aims to answer all your questions on the new process.">
+    <meta name="twitter:image" content="https://www.anotalo.website/{%static 'core/img/anotalo.jpg'%}">
+      
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'core/img/favicon/apple-icon-57x57.png'%}">
     <link rel="apple-touch-icon" sizes="60x60" href="{% static 'core/img/favicon/apple-icon-60x60.png'%}">
     <link rel="apple-touch-icon" sizes="72x72" href="{% static 'core/img/favicon/apple-icon-72x72.png'%}">
