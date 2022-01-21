@@ -13,6 +13,7 @@ from django.urls import reverse_lazy
 # Models
 from .models import Profile
 
+
 # Create your views here.
 
 
@@ -54,4 +55,3 @@ class ProfileUpdate(UpdateView):
     def get_object(self):
         profile, created =  Profile.objects.get_or_create(user = self.request.user)
         return profile
-

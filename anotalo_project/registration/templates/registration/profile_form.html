@@ -13,10 +13,11 @@
                         <div class="col col-8 col-md-5 col-lg-5 col-xl-4 mt-3 text-center mx-auto d-flex justify-content-center align-items-center">
                             <div class="d-grid">
                                 <h3 class="texty-blue fw-600" >{{request.user.username}}</h3>
-                                <img src="{{request.user.profile.avatar.url}}" style="border-radius: 50%;" class="img-fluid">
+                                <img src="{{request.user.profile.avatar.url}}" style="border-radius: 50%;" class="img-fluid mb-3">
                             </div>
                         </div>
                     {% endif %}
+                    
                     <div class="col col-12 col-md-10 col-lg-6 col-xl-7 d-block mx-auto px-5">
                         {% if not request.user.profile.avatar and not request.user.profile.background %}
                         <div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -24,6 +25,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         {% endif %}
+                        {{form.errors.avatar}}
                         <div class="mb-3 mt-3 ">
                             <label for="form-label texty-blue fw-700">Avatar:</label>
                             <input type="file" name="avatar" class="form-control" id="id_avatar">

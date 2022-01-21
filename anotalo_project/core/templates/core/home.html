@@ -10,18 +10,18 @@
 
 <section id="home" class="anotalo d-flex align-items-center">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 d-flex flex-column justify-content-center ">
-                <h1 class="mb-3 text-center text-lg-start fw-700 texty-blue">Organize your next tasks faster</h1>
-                <h2 class="mb-4 fs-4 text-center text-lg-start">Anotalo is free & Open Source To Do (Web App), you can check the <a href="https://github.com/juanmarchant/anotalo_project"  target="_blank" class="text-decoration-none"> source code </a>and fell free to use it in your studies or projects.</h2>
+        <div class="row " >
+            <div class="col-lg-6 d-flex flex-column justify-content-center" >
+                <h1 class="mb-3 text-center text-lg-start fw-700 texty-blue" data-aos="fade-up" data-aos-easing="ease-in-out">Organize your next tasks faster</h1>
+                <h2 class="mb-4 fs-4 text-center text-lg-start" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out">Anotalo is free & Open Source To Do (Web App), you can check the <a href="https://github.com/juanmarchant/anotalo_project"  target="_blank" class="text-decoration-none"> source code </a>and fell free to use it in your studies or projects.</h2>
 
-                <div class="text-center text-lg-start">
+                <div class="text-center text-lg-start" data-aos="fade-up" data-aos-delay="600" data-aos-easing="ease-in-out">
                     <a href="#about" class="btn btn-lg btn-blue d-inline-flex align-items-center justify-content-center align-self-center shadow-me">
                         <span>More about</span><i class="bi bi-arrow-right ms-2"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 anotalo-img d-flex flex-column justify-content-center">
+            <div class="col-lg-6 anotalo-img d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="600" >
                 <img class="img-fluid mx-auto" src="{% static 'core/img/anotalo-img.png' %}" width="500px" alt="">
             </div>
         </div>
@@ -33,5 +33,6 @@
 {% endblock content %}
 
 {% block script %}
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src=" {% static 'core/js/aos.js' %}"></script>
 {% endblock script %}

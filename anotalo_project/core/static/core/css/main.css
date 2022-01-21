@@ -34,6 +34,9 @@ input, select, textarea, .navbar-toggler, .btn-close{
   margin-top: 80px;
 }
 
+.avatar{
+  min-height: 402px !important;
+}
 
 .btn-blue{
   background-color: #4154F1 ;
