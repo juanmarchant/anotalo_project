@@ -151,7 +151,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Deploy
-
 if DEBUG:
     CORS_REPLACE_HTTPS_REFERER      = False
     HOST_SCHEME                     = "http://"

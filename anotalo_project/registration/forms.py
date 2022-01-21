@@ -48,8 +48,8 @@ class ProfileForm(forms.ModelForm):
 
             #validate content type
             main, sub = avatar.content_type.split('/')
-            if not (main == 'image' and sub in ['jpeg', 'pjpeg', 'png']):
-                raise forms.ValidationError(u'Please use a JPEG, or PNG image.')
+            if not (main == 'image' and sub in ['png']):
+                raise forms.ValidationError(u'Please use a PNG image.')
 
             #validate file size
             if len(avatar) > (500 * 1024):
@@ -60,3 +60,24 @@ class ProfileForm(forms.ModelForm):
             pass
 
         return avatar
+    
+    def clean_background(self):
+        background = self.cleaned_data['background']
+        try:
+            w, h = get_image_dimensions(background)
+            #validate dimensions
+            max_width = 3840
+            max_height = 2160
+            if w > max_width or h > max_height:
+                raise forms.ValidationError(u'Please use an image that is ''%s x %s pixels or smaller.' % (max_width, max_height))
+            
+
+            #validate content type
+            main, sub = background.content_type.split('/')
+            if not (main == 'image' and sub in ['jpeg', 'pjpeg', 'png']):
+                raise forms.ValidationError(u'Please use a JPEG, or PNG image.')
+
+        except AttributeError:
+            pass
+
+        return background
