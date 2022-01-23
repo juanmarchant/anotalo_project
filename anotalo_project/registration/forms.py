@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from .models import Profile
 
 # Image Validation
+from django.core.files.uploadedfile import UploadedFile
 from django.core.files.images import get_image_dimensions
 
 class UserCreationFormWithEmail(UserCreationForm):
@@ -34,9 +35,8 @@ class ProfileForm(forms.ModelForm):
 
     def clean_avatar(self):
         avatar = self.cleaned_data['avatar']
-        try:
+        if avatar and isinstance(avatar, UploadedFile):
             w, h = get_image_dimensions(avatar)
-            print(avatar, w, h)
             #validate dimensions
             max_width = max_height = 1000
             min_width = min_height = 400
@@ -48,22 +48,21 @@ class ProfileForm(forms.ModelForm):
 
             #validate content type
             main, sub = avatar.content_type.split('/')
-            if not (main == 'image' and sub in ['png']):
+            if not (main == 'image' and sub in ['jpeg', 'pjpeg', 'png']):
                 raise forms.ValidationError(u'Please use a PNG image.')
 
             #validate file size
             if len(avatar) > (500 * 1024):
-                raise forms.ValidationError(
-                    u'Avatar file size may not exceed 500Kb.')
+                raise forms.ValidationError(u'Avatar file size may not exceed 500Kb.')
 
-        except AttributeError:
+        else:
             pass
 
         return avatar
     
     def clean_background(self):
         background = self.cleaned_data['background']
-        try:
+        if background and isinstance(background, UploadedFile):
             w, h = get_image_dimensions(background)
             #validate dimensions
             max_width = 3840
@@ -77,7 +76,6 @@ class ProfileForm(forms.ModelForm):
             if not (main == 'image' and sub in ['jpeg', 'pjpeg', 'png']):
                 raise forms.ValidationError(u'Please use a JPEG, or PNG image.')
 
-        except AttributeError:
+        else:
             pass
-
         return background

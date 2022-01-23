@@ -12,7 +12,7 @@ _Anotalo is free & open source To Do App, you can check the source code and fell
 
 ## Website
 
-The website is isn't ready but it was ios going to be right here :D [anotalo.com] (/)
+The website is ready you can check right here :D [anotalo.website](https://www.anotalo.website/))
 
 ## Contact
 
